@@ -11,13 +11,70 @@
 </head>
 <body>
     <div id="background">
-
+        <div class="el-1">Первый блок</div>
+        <div class="el-2">Второй блок</div>
+        <div class="el-3">Третий блок</div>
+        <div class="el-4">Четвёртый блок</div>
+        <button class="btn btn--css">CSS</button>
+        <button class=" btn btn--cssreset">CSS Сброс</button>
+        <button class="btn btn--js">JS</button>
+        <button class="btn btn--jsreset">JS Сброс</button>
     </div>
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/jquery-ui-1.10.4.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script>
-        $(function () {
+        let el1 = document.querySelector('.el-1');
+        let el2 = document.querySelector('.el-2');
+        let el3 = document.querySelector('.el-3');
+        let el4 = document.querySelector('.el-4');
+        let cssStart = document.querySelector('.btn--css');
+        let cssReset = document.querySelector('.btn--cssreset');
+        let jsStart = document.querySelector('.btn--js');
+        let jsEnd = document.querySelector('.btn--jsreset');
+        let el1Opacity = 1;
+        let el2Rotate = 0;
+        let el3Scale = 1;
+        let el4Translate = 0;
+        cssStart.addEventListener('click', function (evt) {
+          el1.classList.add('el-1--css');
+          el2.classList.add('el-2--css');
+          el3.classList.add('el-3--css');
+          el4.classList.add('el-4--css');
+        });
+        cssReset.addEventListener('click', function (evt) {
+          el1.classList.remove('el-1--css');
+          el2.classList.remove('el-2--css');
+          el3.classList.remove('el-3--css');
+          el4.classList.remove('el-4--css');
+        });
+        jsStart.addEventListener('click', function (evt) {
+          let timerId = setInterval(function() {
+            el1Opacity = el1Opacity - 0.1;
+            el2Rotate = el2Rotate + 10;
+            el3Scale = el3Scale + 0.05;
+            el4Translate = el4Translate + 10;
+            el1.style.opacity = el1Opacity;
+            el2.style.transform = "rotate(" + el2Rotate + "deg)";
+            el3.style.transform = "scale(" + el3Scale + ")";
+            el4.style.transform = "translate(" + el4Translate + "px" + "," + el4Translate + "px)";
+            if (el1Opacity < 0 || el3Scale > 1.5 || el4Translate > 200) {
+              el1Opacity = 1;
+              el3Scale = 1;
+              el4Translate = 0;
+            }
+          }, 200);
+          jsEnd.addEventListener('click', function (evt) {
+            clearInterval(timerId);
+            el1.style.opacity = '1';
+            el2.style.transform = "rotate(0deg)";
+            el4.style.transform = "translate(0,0)";
+          });
+        });
+
+
+
+          $(function () {
            
         });
     </script>

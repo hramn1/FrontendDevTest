@@ -201,6 +201,100 @@
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script src="js/hammer.js"></script>
     <script>
+      let btnScale = document.querySelector('.Layer4');
+      let scale = document.querySelector('.parentSlider');
+      let p1 = document.querySelector('.p1');
+      let p2 = document.querySelector('.p2');
+      let p3 = document.querySelector('.p3');
+      let p4 = document.querySelector('.p4');
+      let p5 = document.querySelector('.p5');
+      let p6 = document.querySelector('.p6');
+      let p7 = document.querySelector('.p7');
+      let p8 = document.querySelector('.p8');
+      let p9 = document.querySelector('.p9');
+      let p10 = document.querySelector('.p10');
+      let textFooter = document.querySelector('.textFooter')
+      var RADIUS_PIN = 27;
+      var WIDTH_SCALE = scale.scrollWidth;
+      btnScale.style.cursor = "pointer";
+      btnScale.addEventListener('mousedown', onMouseDown);
+      function onMouseDown(evt) {
+        evt.preventDefault();
+        var startCoordsX = evt.clientX;
+        function onMouseMove(moveEvt) {
+          var shift = startCoordsX - moveEvt.clientX;
+
+          startCoordsX = moveEvt.clientX;
+          var cordsX = btnScale.offsetLeft - shift;
+          console.log(cordsX)
+          if (cordsX  < 0) {
+            cordsX = 0;
+          } else if (cordsX + RADIUS_PIN > WIDTH_SCALE) {
+            cordsX = WIDTH_SCALE - RADIUS_PIN;
+          }
+          btnScale.style.left = cordsX + 'px';
+          var percentWidth = cordsX / (WIDTH_SCALE - RADIUS_PIN) * 70;
+          console.log(percentWidth);
+          if(percentWidth > 7){
+            p1.style.display = "block";
+          } else {
+            p1.style.display = "none";
+          }
+          if(percentWidth > 14){
+            p2.style.display = "block";
+          } else {
+            p2.style.display = "none";
+          }
+          if(percentWidth > 21){
+            p3.style.display = "block";
+          } else {
+            p3.style.display = "none";
+          }
+          if(percentWidth > 28){
+            p4.style.display = "block";
+          } else {
+            p4.style.display = "none";
+          }
+          if(percentWidth > 35){
+            p5.style.display = "block";
+          } else {
+            p5.style.display = "none";
+          }
+          if(percentWidth > 42){
+            p6.style.display = "block";
+          } else {
+            p6.style.display = "none";
+          }
+          if(percentWidth > 49){
+            p7.style.display = "block";
+          } else {
+            p7.style.display = "none";
+          }
+          if(percentWidth > 56){
+            p8.style.display = "block";
+          } else {
+            p8.style.display = "none";
+          }
+          if(percentWidth > 63){
+            p9.style.display = "block";
+          } else {
+            p9.style.display = "none";
+          }
+          if(percentWidth > 69){
+            p10.style.display = "block";
+          } else {
+            p10.style.display = "none";
+          }
+          //scaleLevel.style.width = percentWidth + '%';
+          textFooter.textContent = 	Math.round(percentWidth);
+        }
+        function onMouseUp() {
+          scale.removeEventListener('mousemove', onMouseMove);
+          document.removeEventListener('mouseup', onMouseUp);
+        }
+        scale.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+      }
         $(function () {
            
         });

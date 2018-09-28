@@ -135,3 +135,89 @@ body {
     top: 0px;
     background-color: aliceblue
 }
+.el-1{
+    width: 150px;
+    height: 100px;
+    background: rgba(255, 64, 83, 0.83);
+    position: absolute;
+    top: 20%;
+    left:30%;
+    text-align: center;
+    line-height: 100px;
+
+}
+.el-2{
+    width: 150px;
+    height: 200px;
+    background: rgba(66, 255, 96, 0.83);
+    position: absolute;
+    top: 40%;
+    left:10%;
+    text-align: center;
+    line-height: 200px;
+}
+.el-3{
+    width: 110px;
+    height: 120px;
+    background: rgba(85, 80, 255, 0.83);
+    position: absolute;
+    top: 80%;
+    left:40%;
+    text-align: center;
+    line-height: 120px;
+
+}
+.el-4{
+    width: 210px;
+    height: 70px;
+    background: rgb(255, 80, 212);
+    position: absolute;
+    top: 50%;
+    left:60%;
+    text-align: center;
+    line-height: 70px;
+}
+.el-1--css{
+    animation-name: elem-1;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+.el-2--css{
+    animation-name: elem-2;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+.el-3--css{
+    animation-name: elem-3;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+.el-4--css{
+    animation-name: elem-4;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes elem-1 {
+    0% {opacity: 1}
+    50%    {opacity: 0.1}
+    100 {opacity: 1}
+}
+@keyframes elem-2 {
+    0% {transform: rotate(0deg)}
+    50%    {transform: rotate(180deg)}
+100 {transform: rotate(360deg)}
+}
+@keyframes elem-3 {
+    0% {transform: scale(1)}
+    50%    {transform: scale(1.5)}
+100 {transform: scale(1)}
+}
+@keyframes elem-4 {
+    0% {transform: translate(0,0)}
+    50%    {transform: translate(100px,200px)}
+100 {transform: translate(0,0)}
+}
+.btn {
+    margin: 20px;
+}
