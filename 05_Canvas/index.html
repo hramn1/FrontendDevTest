@@ -31,7 +31,24 @@
     <script src="js/jquery-ui-1.10.4.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script>
-        $(function () {
+      let canvas = document.getElementById('screen');
+      let ctx = canvas.getContext('2d');
+      ctx.beginPath();
+      ctx.rect(150,100,370,220);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = "5";
+      ctx.moveTo(130, 150);
+      ctx.lineTo(400, 250);
+      ctx.stroke();
+      ctx.closePath();
+      ctx.beginPath();
+      ctx.font = "40px serif";
+      ctx.fillText("Hello world", 210, 220);
+      ctx.closePath();
+
+      $(function () {
            
         });
     </script>
