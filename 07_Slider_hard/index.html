@@ -12,10 +12,6 @@
     <script src="js/jquery-1.8.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
-    <script>
-        $(function () {
-        });
-    </script>
 </head>
 
 <body>
@@ -42,5 +38,50 @@
             </div>
         </div>
     </div>
+    <script>
+    let dragRed = document.querySelector('.drag_red');
+    let dragRedWrapper = document.querySelector('.drag_red_wrapper');
+    let mapArea = document.querySelector('.map_area');
+    let iconMap = document.querySelectorAll('.yellow');
+
+    function paint (cordsY ){
+      for (let i = 0; i < iconMap.length; i++) {
+        console.log(iconMap[i].offsetTop);
+        //console.log(cordsY);
+        if(iconMap[i].offsetTop < cordsY & iconMap[i].offsetTop > cordsY - 100){
+        iconMap[i].style.background = "url('images/refract/man_red.png')";
+      } else {
+        iconMap[i].style.background = "url('images/refract/man_white.png')";
+
+      }
+    }
+    }
+    var onMouseDown = function (evt) {
+      evt.preventDefault();
+      var startCoordsY = evt.clientY;
+      var onMouseMove = function (moveEvt) {
+      var shiftY = startCoordsY - moveEvt.clientY;
+        startCoordsY = moveEvt.clientY
+        var cordsY = dragRed.offsetTop - shiftY;
+        if(cordsY< 0){
+          cordsY = 0;
+        }
+        if (cordsY > dragRedWrapper.offsetHeight - dragRed.offsetHeight){
+          cordsY = dragRedWrapper.offsetHeight - dragRed.offsetHeight;
+        }
+        dragRed.style.top = cordsY + 'px';
+        var gh =  cordsY + 150
+        paint(gh);
+      };
+
+      var onMouseUp = function () {
+        dragRed.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      };
+      dragRed.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+    };
+    dragRed.addEventListener('mousedown', onMouseDown);
+    </script>
 </body>
 </html>
