@@ -24,12 +24,14 @@
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script>
         let imgGift = document.querySelectorAll('.gift');
+        let map = document.querySelector('.content');
         for (let i = 0; i<imgGift.length; i++){
           imgGift[i].addEventListener('mousedown', mouseDown);
         }
         function mouseDown (evt){
+          evt.preventDefault();
           let currentImg = this;
-          let startCords = {
+          var startCords = {
             x: evt.clientX,
             y: evt.clientY,
           };
@@ -38,29 +40,27 @@
             x: startCords.x - evtMove.clientX,
             y: startCords.y - evtMove.clientY
           };
-          startCoords = {
+          startCords = {
             x: evtMove.clientX,
             y: evtMove.clientY
           };
-          let cordX = this.offsetLeft - shift.x;
-          let cordY = this.offsetTop - shift.y;
-          this.style.left = cordX + 'px';
-          this.style.top = cordY + 'px';
+          let cordY = currentImg.offsetTop - shift.y;
+          let cordX = currentImg.offsetLeft - shift.x;
+
+          currentImg.style.left = cordX + 'px';
+          currentImg.style.top = cordY + 'px';
+          if(cordY>250 && cordX < 300){
+            currentImg.style.left = 159 + 'px';
+            currentImg.style.top = 400 + 'px';
+          }
         }
           function mouseUp () {
-            currentImg.removeEventListener('mousemove', mouseMove);
-              document.removeEventListener('mouseup', mouseUp);
+            map.removeEventListener('mousemove', mouseMove);
+            document.removeEventListener('mouseup', mouseUp);
             }
-
-          currentImg.addEventListener('mousemove', mouseMove);
+          map.addEventListener('mousemove', mouseMove);
           document.addEventListener('mouseup', mouseUp);
         }
-
-
-
-
-
-
     </script>
 </body>
 </html>
