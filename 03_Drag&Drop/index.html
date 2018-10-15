@@ -28,6 +28,15 @@
         for (let i = 0; i<imgGift.length; i++){
           imgGift[i].addEventListener('mousedown', mouseDown);
         }
+        function changeBackground () {
+          let mainBg = document.querySelector('.bg');
+          let imgBg1 = document.querySelector('.img8');
+          let imgBg2 = document.querySelector('.img7');
+          mainBg.style.background = 'none';
+          imgBg1.style.display = 'block';
+          imgBg1.style.position = 'absolute';
+          imgBg2.style.left = "0"
+        }
         function mouseDown (evt){
           evt.preventDefault();
           let currentImg = this;
@@ -36,6 +45,12 @@
             y: evt.clientY,
           };
         function mouseMove(evtMove) {
+          for (let i = 0; i<imgGift.length; i++){
+            if (imgGift[0].style.top == '400px' && imgGift[1].style.top == '400px' && imgGift[2].style.top == '400px' && imgGift[3].style.top == '400px')
+            {
+              changeBackground ()
+            }
+          }
           let shift = {
             x: startCords.x - evtMove.clientX,
             y: startCords.y - evtMove.clientY
@@ -50,7 +65,7 @@
           currentImg.style.left = cordX + 'px';
           currentImg.style.top = cordY + 'px';
           if(cordY>250 && cordX < 300){
-            currentImg.style.left = 159 + 'px';
+            currentImg.style.left = 160 + 'px';
             currentImg.style.top = 400 + 'px';
           }
         }

@@ -29,61 +29,101 @@
     <script>
     let canvas = document.querySelector('#canvas_int');
     let ctx = canvas.getContext('2d');
+    let wrapper = document.querySelector('.wrapper');
     let pi = Math.PI;
-    let b = 0;
-    let colorCircle = "blue";
-    let n;
+    let beat = 0;
+    let colorCircle = "Cyan";
+    let circleArc;
+    let arrow = document.querySelector('.arrow_box');
     const circleR = 544/2;
-    function part1(y){
-      let gf = setInterval(function () {
-      b = b+0.1;
-      n = 1.3*pi + b;
-      ctx.beginPath();
-      ctx.lineWidth = 25;
-      ctx.strokeStyle = colorCircle;
-      ctx.arc(circleR, circleR, 225, 1.3*pi, n, false );
-      ctx.stroke();
-      ctx.closePath();
-      if (n>1.7 * pi){
-        clearInterval(gf)
-          y()
-      }
-    },100)
-
-  }
-      part1(part2)
-      function part2(){
-        b = 0;
-        let gf = setInterval(function () {
-        b = b+0.1
-        n = 1.7*pi + b;
+    function part1(part2){
+      beat = 0;
+      let circleInterrval = setInterval(function () {
+        beat = beat+0.1;
+        circleArc = 1.32 * pi + beat;
         ctx.beginPath();
-        ctx.arc(circleR, circleR, 225, 1.7*pi, n, false );
-        ctx.strokeStyle = "red";
+        ctx.lineWidth = 25;
+        ctx.strokeStyle = colorCircle;
+        ctx.arc(circleR, circleR, 225, 1.32 * pi, circleArc, false );
         ctx.stroke();
         ctx.closePath();
-        if (n> 2 *pi){
-          clearInterval(gf)
+        if (circleArc > 1.5 * pi){
+          clearInterval(circleInterrval);
+            part2()
         }
       },100)
     }
+      wrapper.onclick = function() {
+        part1(part2);
+        arrow.classList.add('active');
+      };
+      function part2(){
+        beat = 0;
+        let circleInterrval = setInterval(function () {
+          beat = beat + 0.1;
+          circleArc = 1.5*pi + beat;
+        ctx.beginPath();
+        ctx.arc(circleR, circleR, 225, 1.5*pi, circleArc, false );
+        ctx.strokeStyle = "SkyBlue";
+        ctx.stroke();
+        ctx.closePath();
+        if (circleArc > 2.8 *pi){
+          clearInterval(circleInterrval);
+          part3()
+        }
+      },100)
+    }
+    function part3(){
+      beat = 0;
+      let circleInterrval = setInterval(function () {
+        beat = beat + 0.1;
+        circleArc = 2.8  *pi + beat;
+        ctx.beginPath();
+        ctx.arc(circleR, circleR, 225, 2.8*pi,circleArc, false );
+        ctx.strokeStyle = "DodgerBlue";
+        ctx.stroke();
+        ctx.closePath();
+        if (circleArc > 2.95 *pi){
+          clearInterval(circleInterrval);
+          part4();
+        }
+      },100)
+    }
+    function part4(){
+      beat = 0;
+      let circleInterrval = setInterval(function () {
+        beat = beat + 0.1;
+        circleArc = 2.95  *pi + beat;
+        ctx.beginPath();
+        ctx.arc(circleR, circleR, 225, 2.95*pi, circleArc, false );
+        ctx.strokeStyle = "SkyBlue";
+        ctx.stroke();
+        ctx.closePath();
+        if (circleArc > 3.2 *pi){
+          clearInterval(circleInterrval);
+          part5();
+        }
+      },100)
+    }
+    function part5(){
+      beat = 0;
+      let circleInterrval = setInterval(function () {
+        beat = beat + 0.05;
+        circleArc = 1.6  *pi + beat;
+        ctx.beginPath();
+        ctx.arc(circleR, circleR, 255, 1.6 * pi, circleArc, false );
+        ctx.strokeStyle = "DeepSkyBlue";
+        ctx.stroke();
+        ctx.closePath();
+        if (circleArc > 2 *pi){
+          clearInterval(circleInterrval)
+        }
+      },75)
+    }
 
 
-      // ctx.beginPath();
-      // ctx.arc(circleR, circleR, 225, 2.7*pi, 2.8*pi, false );
-      // ctx.strokeStyle = "black";
-      // ctx.stroke();
-      // ctx.closePath();
-      // ctx.beginPath();
-      // ctx.arc(circleR, circleR, 225, 2.8*pi, 3*pi, false );
-      // ctx.strokeStyle = "blue";
-      // ctx.stroke();
-      // ctx.closePath();
-      // ctx.beginPath();
-      // ctx.arc(circleR, circleR, 255, 1.8*pi, 2*pi, false );
-      // ctx.strokeStyle = "blue";
-      // ctx.stroke();
-      // ctx.closePath();
+
+
 
 
 
