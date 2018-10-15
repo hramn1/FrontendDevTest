@@ -30,23 +30,61 @@
     let canvas = document.querySelector('#canvas_int');
     let ctx = canvas.getContext('2d');
     let pi = Math.PI;
-    let b = 1.4*pi;
+    let b = 0;
     let colorCircle = "blue";
+    let n;
     const circleR = 544/2;
-    function anmateCircle() {
+    function part1(y){
+      let gf = setInterval(function () {
+      b = b+0.1;
+      n = 1.3*pi + b;
       ctx.beginPath();
       ctx.lineWidth = 25;
       ctx.strokeStyle = colorCircle;
-      ctx.arc(circleR, circleR, 225, 1.3*pi, 1.5*pi, false );
+      ctx.arc(circleR, circleR, 225, 1.3*pi, n, false );
       ctx.stroke();
       ctx.closePath();
-      ctx.beginPath();
-      ctx.arc(circleR, circleR, 225, 1.5*pi, 2.7*pi, false );
-      ctx.strokeStyle = "red";
-      ctx.stroke();
+      if (n>1.7 * pi){
+        clearInterval(gf)
+          y()
+      }
+    },100)
 
+  }
+      part1(part2)
+      function part2(){
+        b = 0;
+        let gf = setInterval(function () {
+        b = b+0.1
+        n = 1.7*pi + b;
+        ctx.beginPath();
+        ctx.arc(circleR, circleR, 225, 1.7*pi, n, false );
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+        ctx.closePath();
+        if (n> 2 *pi){
+          clearInterval(gf)
+        }
+      },100)
     }
-    setInterval(anmateCircle, 100);
+
+
+      // ctx.beginPath();
+      // ctx.arc(circleR, circleR, 225, 2.7*pi, 2.8*pi, false );
+      // ctx.strokeStyle = "black";
+      // ctx.stroke();
+      // ctx.closePath();
+      // ctx.beginPath();
+      // ctx.arc(circleR, circleR, 225, 2.8*pi, 3*pi, false );
+      // ctx.strokeStyle = "blue";
+      // ctx.stroke();
+      // ctx.closePath();
+      // ctx.beginPath();
+      // ctx.arc(circleR, circleR, 255, 1.8*pi, 2*pi, false );
+      // ctx.strokeStyle = "blue";
+      // ctx.stroke();
+      // ctx.closePath();
+
 
 
 
