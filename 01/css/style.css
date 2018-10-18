@@ -2,7 +2,7 @@ body{
 	margin:0;
 	padding:0;
 	background-color: #eeeeee;
-		font-family: Arial;
+	font-family: Arial;
 }
 .wrapper{
 	width: 1024px;
@@ -11,10 +11,9 @@ body{
 	background:url('../img/firm_element2.png'), url('../img/back.jpg');
 	background-position: 0 0;
 	background-repeat: no-repeat;
-
 }
 .header{
-padding: 10px 0 45px;
+	padding: 10px 0 45px;
 }
 .header__title{
 	margin: 25px 70px;
@@ -25,18 +24,18 @@ padding: 10px 0 45px;
 }
 .circle{
 	position: relative;
-min-height: 300px;
+	min-height: 300px;
 }
 .circle__third{
-width: 315px;
-height: 315px;
-background-color: #f2d5b7;
-border-radius: 50%;
-line-height: 315px;
-position: absolute;
-top: -18px;
-left: 197px;
-z-index:1;
+	width: 315px;
+	height: 315px;
+	background-color: #f2d5b7;
+	border-radius: 50%;
+	line-height: 315px;
+	position: absolute;
+	top: -18px;
+	left: 197px;
+	z-index:1;
 }
 .circle__third span{
 	font-size: 52px;
@@ -44,18 +43,18 @@ z-index:1;
 	color: #ffffff;
 	position: absolute;
 	top: 76px;
-right: 74px;
+	right: 74px;
 }
 .circle__second{
 	width:200px;
 	height:200px;
 	border-radius: 50%;
 	background-color: #f97719;
-top: 12px;
-left: 206px;
+	top: 12px;
+	left: 206px;
 	position: absolute;
 	z-index: 2;
-		line-height: 200px;
+	line-height: 200px;
 	text-align: center;
 	font-size: 52px;
 	font-weight: 400;
@@ -66,8 +65,8 @@ left: 206px;
 	height:140px;
 	border-radius: 50%;
 	background-color: #ecb780;
-top: 30px;
-left: 363px;
+	top: 30px;
+	left: 363px;
 	position: absolute;
 	z-index: 3;
 	line-height: 140px;
@@ -84,29 +83,29 @@ left: 363px;
 	align-self: end;
 }
 .scale::before{
-position: absolute;
-content: "";
-display: block;
-width: 0px;
-height: 0px;
-z-index: 5;
-border-left: 17px solid #eb6906;
-border-bottom: 17px solid transparent;
+	position: absolute;
+	content: "";
+	display: block;
+	width: 0px;
+	height: 0px;
+	z-index: 5;
+	border-left: 17px solid #eb6906;
+	border-bottom: 17px solid transparent;
 }
 .scale::after{
-position: absolute;
-content: "";
-display: block;
-width: 0px;
-height: 0px;
-z-index: 5;
-right:0;
-border-right: 17px solid #8e9ed2;
-border-bottom: 17px solid transparent;
+	position: absolute;
+	content: "";
+	display: block;
+	width: 0px;
+	height: 0px;
+	z-index: 5;
+	right:0;
+	border-right: 17px solid #8e9ed2;
+	border-bottom: 17px solid transparent;
 }
 .scale__pin{
 	position: absolute;
-top: -8px;
+	top: -8px;
 	width: 47px;
 	height: 38px;
 	background: url('../img/marker.png'), url('../img/marker_shadow2.png');
@@ -117,10 +116,10 @@ top: -8px;
 }
 .scale__pin span{
 	position: absolute;
-top: -28px;
-right: 15px;
-font-size: 25px;
-		font-weight: 400;
+	top: -28px;
+	right: 15px;
+	font-size: 25px;
+	font-weight: 400;
 }
 .block{
 	padding: 10px 60px 20px;
